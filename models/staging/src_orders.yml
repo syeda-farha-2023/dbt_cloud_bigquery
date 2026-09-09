@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: bigquery_source
+    database: goapptiv-data-lake # Replace with your GCP Project ID
+    schema: staging_test # Replace with your BigQuery Dataset name
+    tables:
+      - name: orders
+        description: "Raw order transactions directly loaded into BigQuery."
+        columns:
+          - name: order_id
+            tests:
+              - unique
+              - not_null
